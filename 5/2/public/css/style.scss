@@ -1,0 +1,24 @@
+body{
+  background-color: #eee;
+}
+#root{
+  opacity: 0;
+  transition: all 1s;
+  &.active{
+    opacity: 1;
+  }
+  .comp-plus,
+  .comp-minus{
+    opacity: 0;
+    transition: all 1s;
+    &.active{opacity: 1;}
+  }
+}
+input.active1{
+  background-color: #00f;
+  color: #fff;
+}
+input.active2{
+  background-color: red;
+  color: #fff;
+}

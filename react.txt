@@ -1,0 +1,129 @@
+리액트 개발환경
+nodejs - 자바스크립트 독립 실행기 
+npm - 자바스크립트 라이브러리 설치 및 실행
+barbel 라이브러리 - jsx문법
+webpack - 압축기
+create-react-app 라이브러리
+
+1. vscode 설정 
+    json파일에 추가
+      "emmet.includeLanguages":{
+        "javascript":"javascriptreact"
+      }
+    확장프로그램
+      - reactjs code snippets
+      - auto import
+    vscode 관리자 권한 실행
+
+2. node.js lts버전으로 설치 후 터미널에서 node -v로 확인
+
+3. 리액트 프로젝트 세팅
+    - 리액트 개발환경 구축 프로그램 설치
+      npm install(i) -g create-react-app //create-react-app -V 설치확인
+    
+    - 리액트 프로젝트 폴더 만들기
+      create-react-app folder-name
+
+    - 리액트 서버환경 실행
+      npm run start
+    
+    - 리액트 서버환경 종료
+      ctrl + c
+
+    - 리액트 깃허브 호스팅
+      1) 깃허브 저장소 생성 (add readMe File 체크)
+      2) addFile 업로드 후 commit change 클릭 (리액트일 경우, 빌드 전 package.json파일 수정)
+        - npm install --save gh-pages를 터미널에 친뒤
+        - scripts객체 안에 아래 두줄 추가
+            "predeploy":"npm run build",
+            "deploy": "gh-pages -d build",
+        - 객채 맨위에 "hompage":"https://bluehalu98/github.io/mysite", 추가한뒤 build를 한다
+        - setting/general/pages에서 branch를 main으로 설정후 save
+        - npm uninstall gh-pages 로 다시 삭제 요망
+      3) 리액트 빌드
+      1) npm run build
+      2) build 폴더 안의 파일들을 호스트 루트에 업로드
+
+4. 리액트프로젝트를 깃과 연동시 주의사항
+  .gitignore 파일에 node_modules파일 추가
+
+5. 리액트 절대경로 변수
+  html => %PUBLIC_URL%  ( <link href="%PUBLIC_URL%/css/style.css">)
+  js => process.env.PUBLIC_URL (img.setAttribute('src','${process.env.PUBLIC_URL/img/a.jpg}'))
+
+  - spa(single page app(web))
+  - 컴포넌트 구성을 자바스크립트로 가능
+  - 페이지 이동속도가 향상
+
+
+
+1번 폴더
+■ 컴포넌트 
+  js파일의 최상위 함수 (파스칼 케이스)
+
+■ html 요소 설계
+  컴포넌트의 return문 안에서 jsx문법을 사용
+
+■ jsx 문법
+  ● 한개의 요소(fragment도 사용가능)만 return 할 수 있다.
+  ● 반드시 요소는 열고 닫는다 (self closing도 가능 <div/>)
+  ● 주의할 속성 className, currentValuem, htmlFor
+  ● {}를 이용해서 스크립트 문법(변수, 함수)을 연결할 수 있음 ({`a = ${a}`})
+  ● {] 문법에서는 함수나 변수 한개만 출력할 수 있다. (a=1와 같은 함수나 변수가 아닌 것과 조건문(for, if) 사용불가)
+
+■ 이벤트 연동
+  ● 렌더링(리액트로 jsx문법으로 작성한 html이 실제 html에 적용되는 것) 후에만 객체를 호출할 수 있음 
+  ● 렌더링 전에 이벤트를 연결하기 위해서는 onClick 속성을 이용함
+    - <button onClick={함수명} /> 함수명만 써야함!!!
+    - <button onClick={()=>{함수명()}} />
+
+■ 훅스
+  ● 리액트에서만 제공되는 명령어
+  ● 훅스 호출전 import를 해야함
+
+■ useState훅스(스테이트관리)
+  ● 데이터가 변하면 렌더링을 다시 발생한다(리렌더링, 화면이 변한다)
+  ● 선언예시 let [n,chnageN] = useState(초기값) => n이 변하면 리렌더링이 발생하고, n의 초기값은 useState안에, 바꾸려면 changeN을 사용해야한다
+  ● 변경예시 let a = n; a = 2; changeN(a) -> 권장사항
+             n = 2 -> 사용금지
+  ● 주의사항 !!!! return문안에서 useState사용시 계속 리렌더링이 발생하여 무한루프에 빠지게된다
+
+
+
+3번 폴더
+삼항식
+이항식
+조건문
+곱하기 문제 (문제화면, 결과화면 분리)
+사칙연산(연산별로 화면분리, 결과화면분리)
+
+
+■ 컴포넌트 별로 출력
+  ● 삼항연산자, 이항연산자를 이용
+  ● 조건문(권장x)
+  ● 라우터를 이용 (멀티 페이지처럼 구현)
+  ● css를 이용 (디자인 목적으로 사용)
+
+
+4번 폴더
+
+context 
+  - 만들기
+    1. 컨텍스트 생성 => 최상위 컴포넌트 밖에서 createContext 훅스를 이용
+      export const 컨텍스트이름 = createContext()
+    2. 컨텍스트 컨테이너 구조
+      <AppContext.Provider value={{a,b,c,d}}>
+        <컴포넌트1>
+        <컴포넌트2>
+      </AppContext.Provider>
+    
+  - 사용
+    1. 컨텍스트 호출 => 컨텍스트를 사용할 컴포넌트 안에서 useContext훅스를 이용
+
+    2. 사용
+
+5번 폴더 
+
+  useEffect
+    1. 개념과 주의사항
+    2. 더하기 화면과 결과화면 구현
