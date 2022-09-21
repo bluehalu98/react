@@ -1,0 +1,118 @@
+@import 'mixin';
+body{
+  background-image: url(../img/paper.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+main.app{
+  position: fixed;
+  @include pos-center;
+  width: 95%;
+  max-width: 400px;
+  min-width: 250px;
+  height: 85%;
+  max-height: 600px;
+  min-height: 400px;
+  box-sizing: border-box;
+  padding: 25px;
+  h1{
+    position: relative;
+    height: 10%;
+    margin-top: -5%;
+    mix-blend-mode: overlay;//mix blend mode는 형제끼리만 적용
+    img{
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+  .output-container{
+    position: relative;
+    height: 45%;
+    margin-top: -10%;
+    .bg-output{width: 100%;height: 100%;}
+    .output{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      @include pos-center;
+      width: 90%;
+      height: 65%;
+      margin-top: 6.2%;
+      img{width: 9%;height: auto;}
+    }
+  }//output container
+  .input-container{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 48%;
+    margin-top: 3%;
+    &:active button{
+      scale: 0.6;
+    }
+    button{
+      width: 25%;
+      height: 20%;
+      transition: all 0.3s;
+      &:active{
+        scale: 1.5;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        scale: 0.7;
+        &[src*='clear']{
+          scale: 1.5;
+        }
+      }
+    }
+  }//input container
+  .bg-app{
+    position: absolute;
+    @include pos-center;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%,-50%) scale(1.1);
+  }//bg app
+}//main
+
+.msg-error,.msg-output{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(#000,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    width: 95%;
+    max-width: 400px;
+    min-width: 250px;
+    height: 85%;
+    max-height: 600px;
+    min-height: 400px;
+    animation: jello 1s 2;
+  }
+}
+
+.preloader{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-image: url(../img/paper.jpg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  &.active{
+    opacity: 0;
+  }
+}

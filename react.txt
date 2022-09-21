@@ -127,3 +127,21 @@ context
   useEffect
     1. 개념과 주의사항
     2. 더하기 화면과 결과화면 구현
+
+라우터!!!!!!!
+1. 설치 => npm install react-router-dom
+2. 불러오기 => import { BrowserRouter, Route, Routes } from 'react-router-dom';
+3. 구조
+    <BrowserRouter>
+      <Routes>
+        <Route path='' element={}/> // path(문자열)=>경로, element(변수)=>컴포넌트 필수!
+      </Routes>
+    </BrowserRouter>
+    // 만약 헤더나 푸터같이 라우팅에 상관없는 컴포넌트는 routes 밖으로 빼야한다
+    // routes 안에는 route만 쓸수있다
+
+4. 사용 
+  1. 컴포넌트에서 불러와서 => import { Link } from 'react-router-dom'; 
+  2. Link 태그 사용 = > <Link to=""></Link>,  <NavLink to=""></NavLink> => NavLink는 사용시 해당 컴포넌트에 자동으로 active 클래스를 추가해줘서 css짜기가 수월하다
+
+중첩라우팅 ---> outlet
