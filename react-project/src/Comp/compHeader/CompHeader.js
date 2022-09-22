@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App';
-import CompMenu from '../compMenu/CompMenu';
 import CompMenuMember from '../compMenu/CompMenuMember';
-
+import CompGnbLg from './CompGnbLg';
+import CompGnbSm from './CompGnbSm';
+import CompMbtn from './CompMbtn';
+import { Link } from 'react-router-dom';
 
 const CompHeader = () => {
   const {_stage} = useContext(AppContext)
@@ -15,28 +17,16 @@ const CompHeader = () => {
         <div className="header-bottom">  
           <h1>
             <span className="hidden">리액트프로젝트</span>
-            <a href={process.env.PUBLIC_URL}>
+            <Link to='/'>
               <img src={`${process.env.PUBLIC_URL}/img/icon/logo.png`} alt="" />
-            </a>
+            </Link>
           </h1>
-          {(_stage==='lg')&&
-            <nav className='gnb gnb-lg'>
-              <CompMenu/>
-            </nav>
-          }
-          {(_stage==='sm')&&
-            <button className='mbtn'>
-              <i className="fa-solid fa-xmark"></i>
-              <i className="fa-solid fa-bars"></i>
-            </button>
-          }
+          {(_stage==='lg')&&<CompGnbLg/>}
+          {(_stage==='sm')&&<CompGnbSm/>}
+          {(_stage==='sm')&&<CompMbtn/>}
         </div>{/* header bottom */}
       </header>
-      {(_stage==='sm')&&
-        <nav className='gnb gnb-sm'>
-          <CompMenu/>
-        </nav>
-      }
+
     </>
   );
 };

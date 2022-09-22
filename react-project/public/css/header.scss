@@ -106,13 +106,15 @@ header{
   }//gnb lg
 }
 .gnb-sm{
+  display: none;
+  opacity: 0;
   position: fixed;
-  z-index: 101;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
   background-color: rgba(#000,.7);
+  transition: opacity 1s;
   >ul{
     position: absolute;
     right: 0;
@@ -121,9 +123,11 @@ header{
     max-width: 300px;
     height: 100%;
     background-color: #fff;
-    padding-top: 80px;
+    padding-top: 100px;
     box-sizing: border-box;
     overflow-y: auto;//수직메뉴에서 권장
+    transform: translateX(100%);
+    transition: transform 0.5s;
     >li{
       >a{
         display: block;
@@ -134,9 +138,17 @@ header{
         color: #333;
         font-size: 1.1em;
         @include icon-font(after,'\f149');
-        &::after{float:right;margin-top: 2px;}
+        &.active{color: var(--main-color);}
+        &.active::after{transform: rotate(180deg);}
+        &::after{float:right;margin-top: 2px;transition: all 0.3s;}
       }//1dep a
       >ul{
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s;
+        &.active{
+          max-height: 400px;
+        }
         >li{
           >a{
             display: block;
@@ -151,3 +163,29 @@ header{
     }//1dep li
   }//1dep ul
 }//gnb sm
+
+.gnb-sm.active1{
+  display: block;
+}//gnb sm active
+.gnb-sm.active2{
+  opacity: 1;
+  >ul{
+    transform: translateX(0);
+    transition-delay: 0.5s;
+  }
+}
+
+.mbtn{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3em;
+  color: #333;
+  .close{display: none;}
+  &.active{
+    transform: translateX(12px);
+    .close{display: block;}
+    .bar{display: none;}
+  }
+}
+

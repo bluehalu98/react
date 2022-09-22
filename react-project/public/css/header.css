@@ -112,13 +112,15 @@ header .gnb-lg > ul > li > ul > li > a:hover {
 }
 
 .gnb-sm {
+  display: none;
+  opacity: 0;
   position: fixed;
-  z-index: 101;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  transition: opacity 1s;
 }
 .gnb-sm > ul {
   position: absolute;
@@ -128,9 +130,11 @@ header .gnb-lg > ul > li > ul > li > a:hover {
   max-width: 300px;
   height: 100%;
   background-color: #fff;
-  padding-top: 80px;
+  padding-top: 100px;
   box-sizing: border-box;
   overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.5s;
 }
 .gnb-sm > ul > li > a {
   display: block;
@@ -151,9 +155,24 @@ header .gnb-lg > ul > li > ul > li > a:hover {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
+.gnb-sm > ul > li > a.active {
+  color: var(--main-color);
+}
+.gnb-sm > ul > li > a.active::after {
+  transform: rotate(180deg);
+}
 .gnb-sm > ul > li > a::after {
   float: right;
   margin-top: 2px;
+  transition: all 0.3s;
+}
+.gnb-sm > ul > li > ul {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s;
+}
+.gnb-sm > ul > li > ul.active {
+  max-height: 400px;
 }
 .gnb-sm > ul > li > ul > li > a {
   display: block;
@@ -162,4 +181,36 @@ header .gnb-lg > ul > li > ul > li > a:hover {
   color: #ccc;
   font-size: 0.95em;
   border-bottom: 1px solid #666;
+}
+
+.gnb-sm.active1 {
+  display: block;
+}
+
+.gnb-sm.active2 {
+  opacity: 1;
+}
+.gnb-sm.active2 > ul {
+  transform: translateX(0);
+  transition-delay: 0.5s;
+}
+
+.mbtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3em;
+  color: #333;
+}
+.mbtn .close {
+  display: none;
+}
+.mbtn.active {
+  transform: translateX(12px);
+}
+.mbtn.active .close {
+  display: block;
+}
+.mbtn.active .bar {
+  display: none;
 }/*# sourceMappingURL=header.css.map */
