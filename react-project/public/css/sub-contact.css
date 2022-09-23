@@ -1,0 +1,62 @@
+.section-contact {
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 600px) {
+  .section-contact {
+    width: 100%;
+  }
+}
+.section-contact .contact-form .input-field {
+  border: 1px solid #ddd;
+  border-top: 4px solid #ddd;
+}
+.section-contact .contact-form .input-field div {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.section-contact .contact-form .input-field div label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21%;
+  padding: 15px 20px;
+  border-right: 1px solid #ddd;
+  margin-right: 15px;
+  background-color: #eee;
+  font-weight: 700;
+  color: #333;
+}
+.section-contact .contact-form .input-field div label.last-label {
+  border-bottom: none;
+}
+.section-contact .contact-form .input-field div input, .section-contact .contact-form .input-field div textarea {
+  display: inline-block;
+  border: 1px solid #ddd;
+  height: 35px;
+  width: 73%;
+  padding: 2px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+.section-contact .contact-form .input-field div textarea {
+  min-height: 250px;
+}
+.section-contact .contact-form .submit-field {
+  text-align: center;
+  padding: 30px 0;
+}
+.section-contact .contact-form .submit-field button[type=submit], .section-contact .contact-form .submit-field button[type=reset] {
+  padding: 7px 50px;
+  color: #fff;
+}
+.section-contact .contact-form .submit-field button[type=submit] {
+  background-color: var(--main-color);
+  margin-right: 5px;
+}
+.section-contact .contact-form .submit-field button[type=reset] {
+  background-color: #666;
+}/*# sourceMappingURL=sub-contact.css.map */

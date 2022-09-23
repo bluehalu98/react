@@ -10,7 +10,7 @@ const CompSubVisualDiv1 = () => {
           컨텐츠 최적화 홈페이지 전문회사입니다.
         </p>
       </div>
-      <img src={`${process.env.PUBLIC_URL}/img/sub/sub01.jpg`} alt="" />
+      <img src={`${process.env.PUBLIC_URL}/img/sub/sub06.jpg`} alt="" />
     </div>
   );
 };

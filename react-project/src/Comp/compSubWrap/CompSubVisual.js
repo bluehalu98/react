@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useEffect } from 'react';
 import { AppContext } from '../../App';
 import CompSubVisualDiv1 from './CompSubVisualDiv1';
 import CompSubVisualDiv2 from './CompSubVisualDiv2';
@@ -9,6 +10,19 @@ import CompSubVisualDiv5 from './CompSubVisualDiv5';
 const CompSubVisual = () => {
   const {pathArr} = useContext(AppContext)
   let menuCategory = pathArr[1]
+
+  useEffect(()=>{
+    const scriptParticle = document.createElement('script');
+    scriptParticle.src = `${process.env.PUBLIC_URL}/js/particles.js`;
+    document.body.appendChild(scriptParticle); 
+    const script = document.createElement('script');
+    script.src = `${process.env.PUBLIC_URL}/js/app_particle_star.js`;
+    document.body.appendChild(script); 
+    return(()=>{//사라질때 스크립트 지우기
+      scriptParticle.remove()
+      script.remove()
+    })
+  },[])
   return (
     <section className="sub-visual">
       {(menuCategory==='company')&&<CompSubVisualDiv1/>}
@@ -16,8 +30,9 @@ const CompSubVisual = () => {
       {(menuCategory==='product')&&<CompSubVisualDiv3/>}
       {(menuCategory==='online')&&<CompSubVisualDiv4/>}
       {(menuCategory==='community')&&<CompSubVisualDiv5/>}
+      <figure id="particles-js"></figure>
     </section>      
   );
 };
 
-export default CompSubVisual;
+export default React.memo(CompSubVisual);
