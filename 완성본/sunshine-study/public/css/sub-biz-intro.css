@@ -1,0 +1,69 @@
+section.section-biz-intro figure {
+  margin: 40px;
+}
+@media screen and (min-width: 800px) {
+  section.section-biz-intro figure {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  section.section-biz-intro figure:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  section.section-biz-intro figure:nth-child(even) figcaption {
+    text-align: right;
+  }
+  section.section-biz-intro figure figcaption {
+    width: 40%;
+  }
+  section.section-biz-intro figure div {
+    width: 55%;
+    border: 3px solid #eee;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+}
+@media screen and (max-width: 800px) {
+  section.section-biz-intro figure figcaption {
+    margin-bottom: 20px;
+  }
+}
+section.section-biz-intro figure figcaption h3 {
+  padding: 7px;
+  font-size: 1.2em;
+  font-weight: 600;
+  background-color: var(--main-color);
+  color: #fff;
+  margin-bottom: 20px;
+}
+section.section-biz-intro figure div {
+  overflow: hidden;
+}
+section.section-biz-intro figure div img {
+  width: 100%;
+}
+
+/* motion */
+section.section-biz-intro {
+  overflow: hidden;
+}
+section.section-biz-intro figure:nth-child(odd) figcaption {
+  transform: translateX(80%);
+}
+section.section-biz-intro figure:nth-child(odd) div {
+  transform: translateX(-80%);
+}
+section.section-biz-intro figure:nth-child(even) figcaption {
+  transform: translateX(-80%);
+}
+section.section-biz-intro figure:nth-child(even) div {
+  transform: translateX(80%);
+}
+section.section-biz-intro figure figcaption, section.section-biz-intro figure div {
+  opacity: 0;
+  transition: all 1s;
+}
+section.section-biz-intro figure figcaption.active, section.section-biz-intro figure div.active {
+  opacity: 1;
+  transform: translateX(0);
+}/*# sourceMappingURL=sub-biz-intro.css.map */

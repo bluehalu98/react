@@ -1,0 +1,40 @@
+@import 'mixin';
+footer{
+  padding: 30px 0;
+  background-color: #222;
+  color: #999;
+  text-align: center;
+  font-size: 0.9em;
+  div{
+    @include center-width;
+    nav{
+      a{
+        font-weight: 600;
+        color: #ddd;
+        &::after{
+          content: ' | ';
+          margin: 0 5px;
+        }
+        &:last-child::after{display: none;}
+      }
+    }
+    address{
+      margin: 10px auto;
+      max-width: 600px;
+      padding: 10px 0;
+      border: 1px dotted #666;
+      border-left: none;
+      border-right: none;
+      i{
+        display: inline-block;
+        &::after{
+          content: '/';
+          margin: 0 5px;
+        }
+      }
+    }
+    p{
+      font-weight: 600;
+    }
+  }
+}//footer
