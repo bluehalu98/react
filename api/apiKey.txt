@@ -1,0 +1,2 @@
+google : AIzaSyAs1gVdn6Ri5QLGNJOXwBE-DaxwmSQ4Ti8
+openweather : 90c1f6e2d235882d7d0500ca5bef60b6

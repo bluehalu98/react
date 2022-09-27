@@ -1,0 +1,191 @@
+@import 'mixin';
+body{
+  @media screen and (min-width:1000px) {
+    padding-top:125px;
+  }
+  @media screen and (max-width:1000px) {
+    padding-top:100px;
+  }
+}
+
+header{
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(#099cfb,.3);
+  @media screen and (min-width:1000px) {
+    height: 125px;
+  }
+  @media screen and (max-width:1000px) {
+    height: 100px;
+  }
+  .header-top{
+    height: 35px;
+    background-color: #eee;
+    .menu-member{
+      @include center-width;
+      height: inherit;
+      text-align: right;
+      a{
+        display: inline-block;
+        height: inherit;
+        padding: 0 20px;
+        line-height: 35px;
+        background-color: #999;
+        color: #fff;
+        font-size: 0.85em;
+        margin-left: 1px;
+        transition: all 0.3s;
+        &:hover{
+          background-color: var(--main-color);
+        }
+      }
+    }//menu member
+  }//header top
+  .header-bottom{
+    @include center-width;
+    height: calc(100% - 35px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+      height: 60%;
+      img{
+        height: 100%;
+      }
+    }//h1
+  }//header bottom
+  .gnb-lg{
+    >ul{
+      display: flex;
+      >li{
+        height: 40px;
+        &:hover{ 
+        >a{color: var(--main-color);}
+        >ul{
+          /* display: block; */
+          max-height: 200px;
+        }
+        }//li hover
+        >a{
+          display: block;
+          height: 40px;
+          padding: 0 30px;
+          line-height: 40px;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size:1.1em;
+          color: #555;
+          transition: all 0.3s;
+        }//1dep a
+        >ul{
+          /* display: none; */
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s;
+          >li{
+            >a{
+              display: block;
+              height: 35px;
+              line-height: 35px;
+              text-align: center;
+              background-color: #555;
+              color: #fff;
+              font-size: 0.95em;
+              transition: all 0.3s;
+              &:hover{
+                background-color: var(--main-color);
+              }
+            }
+          }
+        }//2dep ul
+      }//>li
+    }//1dep ul
+  }//gnb lg
+}
+.gnb-sm{
+  display: none;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(#000,.7);
+  transition: opacity 1s;
+  >ul{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background-color: #fff;
+    padding-top: 100px;
+    box-sizing: border-box;
+    overflow-y: auto;//수직메뉴에서 권장
+    transform: translateX(100%);
+    transition: transform 0.5s;
+    >li{
+      >a{
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #333;
+        font-size: 1.1em;
+        @include icon-font(after,'\f149');
+        &.active{color: var(--main-color);}
+        &.active::after{transform: rotate(180deg);}
+        &::after{float:right;margin-top: 2px;transition: all 0.3s;}
+      }//1dep a
+      >ul{
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s;
+        &.active{
+          max-height: 400px;
+        }
+        >li{
+          >a{
+            display: block;
+            padding: 9px 30px;
+            background-color: #333;
+            color: #ccc;
+            font-size: 0.95em;
+            border-bottom: 1px solid #666;
+          }//2dep a
+        }//2dep li
+      }//2dep ul
+    }//1dep li
+  }//1dep ul
+}//gnb sm
+
+.gnb-sm.active1{
+  display: block;
+}//gnb sm active
+.gnb-sm.active2{
+  opacity: 1;
+  >ul{
+    transform: translateX(0);
+    transition-delay: 0.5s;
+  }
+}
+
+.mbtn{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3em;
+  color: #333;
+  .close{display: none;}
+  &.active{
+    transform: translateX(12px);
+    .close{display: block;}
+    .bar{display: none;}
+  }
+}
+

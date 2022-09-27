@@ -1,0 +1,351 @@
+@charset "UTF-8";
+section.home-visual {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--main-color);
+}
+@media screen and (min-width: 800px) {
+  section.home-visual {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 800px) {
+  section.home-visual {
+    height: 100%;
+  }
+}
+section.home-visual #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+section.home-visual .carousel-3d {
+  position: relative;
+  width: 80%;
+  max-width: 350px;
+  height: 80%;
+  max-height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1000px;
+}
+section.home-visual .carousel-3d ul {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+section.home-visual .carousel-3d ul li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  backface-visibility: hidden;
+}
+section.home-visual .carousel-3d ul li.active img {
+  opacity: 1;
+  scale: 1;
+}
+section.home-visual .carousel-3d ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+  scale: 0.9;
+  transition: all 0.5s;
+}
+section.home-visual .carousel-3d .indicator {
+  position: absolute;
+  width: 100%;
+  bottom: -20px;
+  text-align: center;
+}
+section.home-visual .carousel-3d .indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 3px;
+  opacity: 0.7;
+}
+section.home-visual .carousel-3d .indicator button.active {
+  opacity: 1;
+  scale: 1.2;
+}
+section.home-visual .carousel-3d .prev, section.home-visual .carousel-3d .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 2em;
+  opacity: 0.7;
+}
+section.home-visual .carousel-3d .prev:hover, section.home-visual .carousel-3d .next:hover {
+  opacity: 1;
+}
+section.home-visual .carousel-3d .prev {
+  left: -20px;
+}
+section.home-visual .carousel-3d .next {
+  right: -20px;
+}
+
+.home-section-1 {
+  overflow: hidden;
+  padding: 50px 0;
+  background-color: #efefef;
+}
+.home-section-1 ul {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-section-1 ul li {
+  box-sizing: border-box;
+  padding: 30px;
+}
+@media screen and (min-width: 1000px) {
+  .home-section-1 ul li {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 500px) {
+  .home-section-1 ul li {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .home-section-1 ul li {
+    width: 100%;
+  }
+}
+.home-section-1 ul li a {
+  display: block;
+  margin-bottom: 20px;
+}
+.home-section-1 ul li a img {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+}
+.home-section-1 ul li figcaption {
+  text-align: center;
+}
+.home-section-1 ul li figcaption h3 {
+  margin-bottom: 20px;
+  padding: 7px;
+  background-color: var(--main-color);
+  font-weight: 600;
+  color: #eee;
+  text-transform: uppercase;
+}
+.home-section-1 ul li figcaption p {
+  color: #333;
+}
+
+/* section 1 motion */
+.home-section-1 ul li:hover a img {
+  border: 5px dotted var(--main-color);
+}
+.home-section-1 ul li:hover h3 {
+  background-color: #fff;
+  color: var(--main-color);
+}
+.home-section-1 ul li a {
+  perspective: 700px;
+}
+.home-section-1 ul li figcaption h3, .home-section-1 ul li figcaption p {
+  opacity: 0;
+  transition: all 1s;
+}
+.home-section-1 ul li figcaption h3 {
+  transform: translateX(-100px);
+  transition: background-color 0.5s, color 0.5s;
+}
+.home-section-1 ul li figcaption p {
+  transform: translateX(100px);
+}
+.home-section-1 ul li figcaption.active h3, .home-section-1 ul li figcaption.active p {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.home-section-2 {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1000px) {
+  .home-section-2 {
+    padding: 50px 0;
+    display: flex;
+  }
+}
+.home-section-2 section {
+  position: relative;
+}
+@media screen and (min-width: 1000px) {
+  .home-section-2 section {
+    box-sizing: border-box;
+  }
+  .home-section-2 section:nth-child(1) {
+    width: 25%;
+    padding-right: 30px;
+  }
+  .home-section-2 section:nth-child(2) {
+    width: 50%;
+    padding: 0 30px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-top: none;
+  }
+  .home-section-2 section:nth-child(3) {
+    width: 25%;
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .home-section-2 section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  .home-section-2 section .home-customer {
+    border-bottom: none;
+  }
+}
+.home-section-2 section h3 {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+.home-section-2 section h3 i {
+  margin-right: 5px;
+}
+.home-section-2 section .more {
+  position: absolute;
+  right: 30px;
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 3px 5px;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.home-section-2 section .more:hover {
+  background-color: #fff;
+  color: var(--main-color);
+}
+.home-section-2 .latest-notice ul li {
+  padding: 3px 0;
+  border-bottom: 1px dotted #ddd;
+}
+.home-section-2 .latest-notice ul li a::before {
+  content: "·";
+}
+.home-section-2 .latest-notice ul li time {
+  float: right;
+}
+.home-section-2 .latest-gallery ul {
+  display: flex;
+  justify-content: space-between;
+}
+.home-section-2 .latest-gallery ul li {
+  width: 32%;
+}
+.home-section-2 .latest-gallery ul li:hover h4 {
+  background-color: #fff;
+  color: var(--main-color);
+}
+.home-section-2 .latest-gallery ul li img {
+  width: 100%;
+}
+.home-section-2 .latest-gallery ul li h4 {
+  text-align: center;
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 0.9em;
+  transition: all 0.5s;
+}
+.home-section-2 .home-customer a[href="tel:0"] {
+  display: block;
+  font-weight: 900;
+  font-size: 1.5em;
+  margin: 20px 0;
+  color: var(--main-color);
+}
+
+/* home section 2 motion */
+.home-section-2 section {
+  scale: 0;
+  transition: scale 1s;
+}
+.home-section-2 section.active {
+  scale: 1;
+}
+
+.home-section-3 {
+  padding: 50px 0;
+  position: relative;
+}
+.home-section-3::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-image: url(../img/home/main02.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(50%);
+}
+.home-section-3 div {
+  position: relative;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-section-3 div h2 {
+  margin-bottom: 30px;
+  font-weight: 900;
+  font-size: 2em;
+  color: var(--main-color);
+}
+.home-section-3 div address {
+  margin-bottom: 30px;
+}
+.home-section-3 div address p {
+  color: #fff;
+  margin: 10px 0;
+}
+.home-section-3 div a {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.3em;
+  transition: all 0.5s;
+}
+.home-section-3 div a:hover {
+  background-color: #fff;
+  color: var(--main-color);
+}/*# sourceMappingURL=home.css.map */

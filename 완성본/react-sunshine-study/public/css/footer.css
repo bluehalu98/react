@@ -1,0 +1,41 @@
+footer {
+  padding: 30px 0;
+  background-color: #222;
+  color: #999;
+  text-align: center;
+  font-size: 0.9em;
+}
+footer div {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+footer div nav a {
+  font-weight: 600;
+  color: #ddd;
+}
+footer div nav a::after {
+  content: " | ";
+  margin: 0 5px;
+}
+footer div nav a:last-child::after {
+  display: none;
+}
+footer div address {
+  margin: 10px auto;
+  max-width: 600px;
+  padding: 10px 0;
+  border: 1px dotted #666;
+  border-left: none;
+  border-right: none;
+}
+footer div address i {
+  display: inline-block;
+}
+footer div address i::after {
+  content: "/";
+  margin: 0 5px;
+}
+footer div p {
+  font-weight: 600;
+}/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,58 @@
+section.section-about {
+  text-align: center;
+}
+section.section-about svg {
+  display: none;
+}
+section.section-about p {
+  margin: 40px auto;
+}
+section.section-about p b {
+  color: var(--main-color);
+}
+section.section-about p:nth-of-type(1) {
+  max-width: 400px;
+}
+section.section-about p:nth-of-type(2) {
+  max-width: 600px;
+}
+section.section-about p:nth-of-type(3) {
+  max-width: 800px;
+}
+section.section-about figure {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.section-about figure img {
+  width: 100%;
+  filter: brightness(80%);
+}
+section.section-about figure div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  border: 1px solid #999;
+  mix-blend-mode: overlay;
+  filter: url(#goo);
+}
+section.section-about figure div span {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff;
+  top: -10%;
+}
+
+@keyframes drop {
+  0% {
+    top: -20%;
+  }
+  100% {
+    top: 120%;
+  }
+}/*# sourceMappingURL=sub-about.css.map */

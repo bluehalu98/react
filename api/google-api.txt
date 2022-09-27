@@ -1,0 +1,97 @@
+■ 구글API
+  ● 구글API콘솔 접속
+    https://console.cloud.google.com/apis (2022.9월 기준)
+  ● 프로젝트만들기 실행
+  ● 프로젝트명 입력후 create실행
+  ● 상단의 프로젝트 선택 메뉴 / 해당프로젝트 이동
+  ● 사용자 인증정보 만들기
+    ▶ 왼쪽 상단의 탐색메뉴(햄버거메뉴) / api서비스 / 사용설정된 api 서비스 이동
+    ▶ 사용자 인증정보 버튼 클릭
+    ▶ 상단의 사용자 인증정보 만들기 버튼 클릭
+    ▶ 해당 API를 클릭해서 상세페이지 이동 
+    ▶ 애플리케이션 저장사항옵션 http리퍼러 설정후 저장
+  ● 결제계정
+    ▶ 왼쪽 상단의 탐색메뉴(햄버거메뉴) / 결제
+    ▶ 결제계정연결 / 결제계정만들기
+    ▶ 1단계 계정 정보, 국가 및 사용용도 입력
+    ▶ 2단계 계정 정보, 고객정보 결제정보 입력
+    ▶ 3단계 계정 정보, 2단계 계정 정보와 동일하게 입력
+    ▶ 추가 질문에 대한 답변 입력 
+    ▶ 결제 계정에서 생성된 결제 계정 선택 
+  ● 프로젝트를 제거할경우
+    ▶ 우측상단의 계정설정 및 유틸리티 아이콘 / 프로젝트설정 페이지로 이동
+    ▶ 종료버튼 클릭
+    ▶ 프로젝트 id입력 후 삭제
+
+■ 지도관련 api 
+  ● 라이브러리 페이지로 이동
+    ▶ Maps JavaScript API (지도및 위경도 제공) 이동 후 사용버튼 클릭
+      샘플코드 예시)
+      <script src="https://maps.googleapis.com/maps/api/js?key=발급받은api키"></script>
+
+      const fnInitMap = (lat, lng) => {
+        let map = new window.google.maps.Map(document.getElementById('map'), {
+          center: { lat: lat, lng: lng },
+          zoom: 8
+        })//map
+        let center = { lat: lat, lng: lng }
+        let marker = new window.google.maps.Marker({position : center, map : map , icon :'./img/marker.png'});
+        map.addListener('click', function (e) {
+          let latlng = {
+            lat: e.latLng.lat(),
+            lng: e.latLng.lng()
+          }
+        })//click
+      }//fn
+
+      initMap(lat,lng)
+
+    ▶ Geocoding API (주소정보등을 제공) 이동 후 사용버튼 클릭 
+      샘플코드 예시)
+      <script src="https://maps.googleapis.com/maps/api/js?key=발급받은api키"></script>
+
+      var geocoder = new window.google.maps.Geocoder;
+      var latlng = {
+        lat: 위도,
+        lng: 경도,
+      };
+      geocoder.geocode({ 'location': latlng }, function (results, status) {
+        if (status === "OK") {
+          console.log(results);
+        } else {
+          console.log("주소를 못 가지고 왔습니다");
+        }
+      });
+///////////////////////////////////////////////////////////////////////////////////////////////////////////      
+■ 유튜브 API
+  ● 라이브러리 페이지로 이동
+    ▶ YOU TUBE DATA API V3 이동 후 사용버튼 클릭
+    ▶ 가이드 및 문서 참조 (언어버전을 영어로 설정하길 권장)
+      ▷ guide / youtube data api / reference
+      ▷ 유튜브 검색 리스트 
+        - search / list  메뉴 클릭
+        - try this apis 버튼 클릭
+        - part (snippet)
+        - maxResults (출력갯수)
+        - q (검색어)
+        - type (video)
+        - Google OAuth 2.0 체크해제
+        - show code 옵션중 http 출력,
+        - [YOUR_API_KEY]를 apikey로 변경 (괄호는삭제)  
+      ▷ 인기 목록
+        - Videos / list 메뉴 클릭
+        - try this apis 버튼 클릭
+        - part (snippet)
+        - chart (mostPopular)
+        - Google OAuth 2.0 체크해제
+        - show code 옵션중 [YOUR_API_KEY]를 aipkey로 변경 (괄호는삭제)  
+      ▷ 비디오 정보
+      https://www.googleapis.com/youtube/v3/videos?part=snippet&id={VIDEO_ID}&key={YOUR_API_KEY}  
+  ● 라이브러리 삭제
+    ▶ 상단 프로젝트 메뉴에서 프로젝트 선택
+    ▶ 리소스관리페이지 아이콘 클릭
+    ▶ 프로젝트 아이디 입력후 종료클릭
+
+
+      
+
