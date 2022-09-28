@@ -1,0 +1,7 @@
+■ functions.js---------------------------------------------------
+  → fnGetCurrentLocation() //현재 위치를 리턴하는 함수
+  → fnGetWeatherData() //날씨 정보를 리턴하는 함수
+  → fnGetAddress()//주소 정보를 리턴하는 함수
+  → fnSetWeatherData()//받아온 정보를 가공해서 리턴하는 함수
+■ app.js
+  fnInitApp()//fnGetCurrentLocation(), fnGetWeatherData(), fnGetAddress()

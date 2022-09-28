@@ -1,0 +1,56 @@
+@import 'mixin';
+:root{
+   --main-color:#099cfb;
+   --point-color:#f68b1f;
+}
+#root{
+  height: 100%;
+}
+body{
+  font-family:'Montserrat','Noto Sans KR', sans-serif;
+  font-size: 14px;
+  color:#999;
+}
+/* ------------------------------------------------- */
+body{
+  background-color: #eae0e2;
+  @media screen and (orientation : portrait) {
+    padding: 70px 0;
+  }
+}
+main{
+  background-color: #faf0f1;
+  border: 1px solid #dac8c9;
+  box-shadow: 0 0 20px rgba(#000,.2);
+  border-radius: 10px;
+  @media screen and (orientation:landscape) {
+    @include pos-center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    max-height: 600px;
+    section{
+      width: 50%;
+      height: 50%;
+      box-sizing: border-box;
+      padding: 20px;
+      div.inner{
+        overflow-y: auto;
+        height: 100%;
+      }
+    }
+  }//land 
+  @media screen and (orientation:portrait) {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    section{
+      padding: 20px;
+      div.inner{
+
+      }
+    }
+  }//port 
+}//main
