@@ -49,11 +49,15 @@ export const fnGetAddress = (lat, lng) => {
 export const fnSetWeatherData = (data)=> {
   let time = new Date(data.dt * 1000)
   let year = time.getFullYear() 
-  let month = time.getMonth()+1 //0월부터 11월까지
+  let month = time.getMonth()+1 //0월부터 11월까지 
+  let dayArr = ['sun','mon','tue','wed','thu','fri','sat',]
+  let day = dayArr[time.getDay()]
   let date = time.getDate()
   let hour = time.getHours()
   let min = time.getMinutes()
   let temp = (data.temp -273.15).toFixed(1)
+  let tempMin = (data.temp.min-273.15).toFixed(1)
+  let tempMax = (data.temp.max-273.15).toFixed(1)
   let icon = data.weather[0].icon
   let rain = (data.rain)?data.rain : 0
   let desc = data.weather[0].description
@@ -64,7 +68,7 @@ export const fnSetWeatherData = (data)=> {
   let UV = data.uvi
   let dateObj = {
     year, //year:year
-    month, date, temp, icon, hour, min, rain, status, windSpd, windDeg, humidity, UV
+    month, date, temp, icon, hour, min, rain, status, windSpd, windDeg, humidity, UV, tempMin, tempMax, day
   }
   return(dateObj)
 }

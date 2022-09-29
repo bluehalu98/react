@@ -17,7 +17,7 @@ const App = () => {
     let latLng = await fnGetCurrentLocation()//위경도를 객체를 받아옴
     let weatherData = await fnGetWeatherData(latLng.lat, latLng.lng)//날씨 정보 받아옴
     let address = await fnGetAddress(latLng.lat,latLng.lng)//주소 정보 받아옴
-    
+     
     _setLatLng(latLng)
     _setWeatherData(weatherData)
     _setAddressData(address)
@@ -33,6 +33,7 @@ const App = () => {
 
   return (
     <AppContext.Provider value={{_weatherData,_setWeatherData,_addressData,_setAddressData,_latLng,_setLatLng}}>
+      <h1>Weather API</h1>
       <main>
         <CompCurrent/>
         <CompMap/>
@@ -44,3 +45,7 @@ const App = () => {
 };
 
 export default App;
+/* 
+  리액트는 자식컴포넌트부터 시작해서 index까지 만들어지기때문에
+  항상 부모 컴포넌트내에서 정보를 로드해야할경우 자식 컴포넌트에게 값이없을때 return false를 줘야함
+*/
