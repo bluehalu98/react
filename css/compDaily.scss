@@ -1,0 +1,61 @@
+@import "mixin";
+.section-daily {
+  h2 {
+    &::before {
+      content: "\f784";
+    }
+  }
+  .inner {
+    ul{
+      li{
+        padding: 5px  0;
+        &:nth-child(even){
+          background: rgba(#FFF,0.3);
+        }//li-even
+        .date{
+          display: inline-block;
+          margin-bottom: 10px;
+          padding: 4px 7px;
+          border-radius: 5px;
+          display: inline-block;
+          background: var(--dark-color);
+          color:#FFF;
+          font-size: 0.7em;
+          b{margin-right: 5px;}
+        }//date
+        figure{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          img{
+            width: 60px;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            box-shadow: 5px 5px 0 var(--dark-color);
+          }//img
+          figcaption{
+            flex:1;
+            .temp{
+              font-size: 1.2em;
+              i{margin-right: 5px;}
+            }
+            .desc{
+             b{margin-right: 10px;} 
+            }
+            .etc{
+              font-size: 0.8em;
+              .wind-deg{margin-left: 5px;}
+              b::after{
+                content: '/';
+                margin: 0 5px;
+              }
+              b:last-child::after{
+                display: none;
+              }
+            }
+          }
+        }//figure
+      }//li
+    }//ul
+  }//inner
+}//section

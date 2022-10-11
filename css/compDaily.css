@@ -1,0 +1,73 @@
+.section-daily h2::before {
+  content: "\f784";
+}
+
+.section-daily .inner ul li {
+  padding: 5px  0;
+}
+
+.section-daily .inner ul li:nth-child(even) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.section-daily .inner ul li .date {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  display: inline-block;
+  background: var(--dark-color);
+  color: #FFF;
+  font-size: 0.7em;
+}
+
+.section-daily .inner ul li .date b {
+  margin-right: 5px;
+}
+
+.section-daily .inner ul li figure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-daily .inner ul li figure img {
+  width: 60px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  box-shadow: 5px 5px 0 var(--dark-color);
+}
+
+.section-daily .inner ul li figure figcaption {
+  flex: 1;
+}
+
+.section-daily .inner ul li figure figcaption .temp {
+  font-size: 1.2em;
+}
+
+.section-daily .inner ul li figure figcaption .temp i {
+  margin-right: 5px;
+}
+
+.section-daily .inner ul li figure figcaption .desc b {
+  margin-right: 10px;
+}
+
+.section-daily .inner ul li figure figcaption .etc {
+  font-size: 0.8em;
+}
+
+.section-daily .inner ul li figure figcaption .etc .wind-deg {
+  margin-left: 5px;
+}
+
+.section-daily .inner ul li figure figcaption .etc b::after {
+  content: '/';
+  margin: 0 5px;
+}
+
+.section-daily .inner ul li figure figcaption .etc b:last-child::after {
+  display: none;
+}
+/*# sourceMappingURL=compDaily.css.map */

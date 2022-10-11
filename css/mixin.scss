@@ -1,0 +1,37 @@
+@mixin hidden{
+  position: fixed;
+  left:-10000px
+}
+
+@mixin clearfix{
+  &::after{
+    content:'';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin icon-font($pseudo,$code){
+  &::#{$pseudo}{
+    content:$code;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+  }
+}
+@mixin center-width{
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto; 
+} 
+
+@mixin pos-center{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}

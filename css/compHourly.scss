@@ -1,0 +1,123 @@
+@import "mixin";
+.section-hourly {
+  h2 {
+    &::before {
+      content: "\f252";
+    }
+  }
+  .temp-guide-line{
+    pointer-events: none;
+    position: absolute;
+    left: 20px;
+    width: calc(100% - 40px);
+    @media screen and (orientation:landscape){
+      top:28%;
+      height: 46.5%;
+    }
+    @media screen and (orientation:portrait){
+      top:27%;
+      height: 51.2%;
+    }
+    div{
+      position: absolute;
+      left:0;
+      width: 100%;
+      height: 0px;      
+      small{
+        position: absolute;
+        left:0;
+        top:50%;
+        width: 15px;
+        text-align: center;
+        font-size: 0.5em; 
+        transform: translateY(-50%) scale(0.7); 
+      }//smapp
+      span.line{
+        position: absolute;
+        left: 25px;
+        width: calc(100% - 30px);
+        border-bottom: 1px solid #FFF;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+      }//line
+    }
+    &::before{
+      content: '' ;
+      position: absolute;
+      left:0;
+      top:50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 115%;
+      border-radius: 30px;
+      background: rgba(#FFF,0.8);
+    }
+  }//temp-guide-line
+  .inner {
+    ul {
+      display: inline-flex;
+      height: 100%;
+      padding-left: 20px;
+      li {
+        display: flex;
+        flex-direction: column;
+        width: 90px;
+        height: 100%;
+
+        padding: 5px;
+        box-sizing: border-box;
+        justify-content: space-between;
+        text-align: center;
+        font-size: 0.7em;
+        &:nth-child(even) {
+          background: rgba(#fff, 0.3);
+        }
+        .icon{
+          width: 30%;
+          margin: 5px auto;
+          box-shadow: 3px 3px 0 var(--dark-color); 
+        }
+        p.temp {
+          position: relative;
+          height: 60%;
+          margin: 5px 0;
+          span.temp-number{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            transform: translate(-50%,-55%) scale(0.8);
+            left:50%;
+            text-align: center;
+            font-size: 0.8em; 
+            background: var(--dark-color);
+            color:#FFF;
+            border-radius: 50%;
+          }//number
+          span.vertical-line{
+            position: absolute;
+            left:calc(50% - 1px);
+            height: 50%;
+            bottom:50%;
+            border-right: 2px solid var(--dark-color); 
+            transform-origin: center bottom;
+          }
+        }//p.temp
+        p {
+          b {
+            text-align: left;
+            display: block;
+          }
+          sub{
+            transform: scale(0.7) translateY(-20%);
+          }
+          sup {
+            transform: scale(0.7) translateY(20%);
+          }
+        }
+      } //li
+    }
+  } //inner
+} //section

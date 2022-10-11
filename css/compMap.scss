@@ -1,0 +1,8 @@
+@import "mixin";
+.section-map {
+  h2 {
+    &::before {
+      content: "\f5a0";
+    }
+  } //inner
+} //section

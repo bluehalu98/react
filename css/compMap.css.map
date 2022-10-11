@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAEI,YAFQ,CACV,EAAE,AACC,QAAQ,CAAC;EACR,OAAO,EAAE,OAAO;CACjB",
+    "sources": [
+        "CompMap.scss",
+        "mixin.scss"
+    ],
+    "names": [],
+    "file": "CompMap.css"
+}
